@@ -32,18 +32,15 @@ Parameters
     sc(i) "solar capacity of plant i in cases"
         /   denver 8.3
             pueblo 120
-            weld   16
-        /
+            weld   16 /
     wc(i) "wind capacity of plant i in cases"
         /   denver 8.3
             pueblo 120
-            weld   16
-        /
+            weld   16 /
     gc(i) "gas capacity of plant i in cases"
         /   denver 8.3
             pueblo 120
-            weld   16
-        /        
+            weld   16 /        
     s(j) "solar demand of market j in cases"
         /   Denver 180
             Golden 290
@@ -63,3 +60,22 @@ Parameters
 Golden       36.8        128     65.6
 Boulder      39.9        147     55
 Denver        0          119     51.2 ;
+
+Scalar f transmission cost in cents /0.06/;
+
+Parameter c(j,i) transmission cost; c(j,i) = f *d(j,i) * 1000;
+
+Variables
+    x(i,j) transmitted power in MWh
+    z      total transmission cost in thousands of dollars
+;
+
+Positive Variables
+x(i,j) "power production for each market"
+;
+
+Equations
+    cost
+    supply(i)
+    demand(j)
+    
