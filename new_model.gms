@@ -2,7 +2,9 @@ $TITLE Colorado Model
 
 Sets
     i   plants  / Denver, Pueblo, Weld /
-    j markets   / Denver, Golden, Boulder / ;
+    j markets   / Denver, Golden, Boulder /
+    e energy    / Solar, Gas, Wind /
+    ;
 
 Parameters
     p_s(i) "price of solar at plant i in cases"
@@ -67,7 +69,8 @@ Parameter c(j,i) transmission cost; c(j,i) = f *d(j,i) * 1000;
 
 Variables
     x(i,j) transmitted power in MWh
-    z      total transmission cost in thousands of dollars
+    y      total transmission cost
+    z      objective function value
 ;
 
 Positive Variables
@@ -76,6 +79,9 @@ x(i,j) "power production for each market"
 
 Equations
     cost
-    supply(i)
-    demand(j)
+    supply(i) limit at plant i
+    demand(j) demand at market j
+;
+    
+cost..y =e= sum((i,j), c(j,i)*x(i,j)) ;
     
