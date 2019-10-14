@@ -8,25 +8,25 @@ Sets
 
 Parameters
     p_s(i) "price of solar at plant i in cases"
-        /   Denver 100
-            pueblo 100
-            weld 100   /
+        /   Denver .0695
+            pueblo .065
+            weld .062   /
     c_s(i) "cost of solar at plant i in cases"
         /   Denver 0.05
-            pueblo 0.08
-            weld 0.05  /            
+            pueblo 0.049
+            weld 0.047  /            
     p_g(i) "price of gas at plant i in cases"
-        /   Denver 100
-            pueblo 100
-            weld 100   /
+        /   Denver 9.18
+            pueblo 8.12
+            weld 7.98   /
     c_g(i) "cost of gas at plant i in cases"
         /   Denver 8.34
             pueblo 7.38
             weld 7.26   /            
     p_w(i) "price of wind at plant i in cases"
-        /   Denver 100
-            pueblo 100
-            weld 100   /
+        /   Denver 0.035607
+            pueblo 0.046585
+            weld 0.043582   /
     c_w(i) "cost of wind at plant i in cases"
         /   Denver 0.03237
             pueblo 0.04235
