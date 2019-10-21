@@ -6,11 +6,7 @@ Sets
     e energy    / Solar, Gas, Wind /
     ;
 
-Parameters                                 
-    p_w(i) "price of wind at plant i in cases"
-        /   Denver 0.035607
-            pueblo 0.046585
-            weld 0.043582   /          
+Parameters                                         
     sc(i) "solar capacity of plant i in cases"
         /   denver 8.3
             pueblo 120
