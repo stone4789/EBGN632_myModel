@@ -6,31 +6,19 @@ Sets
     e energy    / Solar, Gas, Wind /
     ;
 
-Parameters
+Parameters                                
     p_s(i) "price of solar at plant i in cases"
         /   Denver .0695
             pueblo .065
             weld .062   /
-    c_s(i) "cost of solar at plant i in cases"
-        /   Denver 0.05
-            pueblo 0.049
-            weld 0.047  /            
     p_g(i) "price of gas at plant i in cases"
         /   Denver 9.18
             pueblo 8.12
-            weld 7.98   /
-    c_g(i) "cost of gas at plant i in cases"
-        /   Denver 8.34
-            pueblo 7.38
-            weld 7.26   /            
+            weld 7.98   /      
     p_w(i) "price of wind at plant i in cases"
         /   Denver 0.035607
             pueblo 0.046585
-            weld 0.043582   /
-    c_w(i) "cost of wind at plant i in cases"
-        /   Denver 0.03237
-            pueblo 0.04235
-            weld 0.03962   /            
+            weld 0.043582   /          
     sc(i) "solar capacity of plant i in cases"
         /   denver 8.3
             pueblo 120
@@ -63,7 +51,13 @@ Parameters
     c("Wind",i) = c_w(i) 
 ;
 
- Table d(j,i)  distance in miles:
+ Table d(j,i)  cost of energy type e at plant i:
+             Denver    Pueblo    Weld
+Gas          8.34        7.38     7.26
+Solar        0.05       0.049     0.047
+Wind         0.03237    0.04235   0.03962 ;
+
+ Table c(e,i)  distance in miles:
              Denver    Pueblo    Weld
 Golden       36.8        128     65.6
 Boulder      39.9        147     55
