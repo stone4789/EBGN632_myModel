@@ -54,7 +54,13 @@ Parameters
     w(j) "wind demand of market j in cases"
         /   Denver 297
             Golden 181
-            Boulder 218 /            
+            Boulder 218 /
+            
+    c(e,i) "cost of energy for each market"
+    
+    c("Solar",i) = c_s(i)
+    c("Gas",i) = c_g(i)
+    c("Wind",i) = c_w(i) 
 ;
 
  Table d(j,i)  distance in miles:
@@ -65,7 +71,7 @@ Denver        0          119     51.2 ;
 
 Scalar f transmission cost in cents /0.06/;
 
-Parameter c(j,i) transmission cost; c(j,i) = f *d(j,i) * 1000;
+Parameter c(j,i) transmission cost; c(j,i) = f *d(j,i) ;
 
 Variables
     x(e,i,j) type of energy and quantity of power transmitted in MWh
