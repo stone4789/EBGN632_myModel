@@ -9,7 +9,7 @@ Sets
 Parameters                                         
     
 
-;
+
 
  Table c(e,i)  cost of energy type e at plant i:
              Denver    Pueblo    Weld
@@ -43,7 +43,10 @@ Wind         297       181     230 ;
 
 Scalar f transmission cost in cents /0.06/;
 
-Parameter c(j,i) transmission cost; c(j,i) = f *d(j,i) ;
+Parameter tc(j,i) transmission cost;
+    tc(j,i) = f *d(j,i) ;
+
+Positive Variable x
 
 Variables
     x(e,i,j) type of energy and quantity of power transmitted in MWh
@@ -51,9 +54,6 @@ Variables
     z      objective function value
 ;
 
-Positive Variables
-x(i,j) "power production for each market"
-;
 
 Equations
     cost
