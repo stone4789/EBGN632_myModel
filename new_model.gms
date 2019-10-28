@@ -41,7 +41,7 @@ Gas          169       290     111
 Solar        180       121     218
 Wind         297       181     230 ;
 
-Scalar f transmission cost in cents /0.06/;
+Scalar f transmission cost in cents /0.06/ ;
 
 Parameter tc(j,i) transmission cost;
     tc(j,i) = f *d(j,i) ;
@@ -57,10 +57,9 @@ Variables
 
 Equations
     cost
-    supply(i) limit at plant i
-    demand(j) demand at market j
-;
+    supply(e,i) limit of energy e at plant i
+    demand(e,j) demand of energy e at market j ;
     
-cost..y =e= sum((i,j), c(j,i)*x(i,j))  ;
-supply(i) .. sum(j, x(i,j)) =l= sc(i),gc(i),wc(i) ;
-    
+cost .. y =e= sum((e,i,j), tc(j,i)*x(e,i,j)) ;
+supply(e,i) .. sum(j, x(e,i,j)) =l= cap(e,i) ;
+demand(e,j) .. sum(i, x(e,i,j)) =g= dem(e,j) ;
