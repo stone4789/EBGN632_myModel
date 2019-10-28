@@ -8,9 +8,6 @@ Sets
 
 Parameters                                         
     
-
-
-
  Table c(e,i)  cost of energy type e at plant i:
              Denver    Pueblo    Weld
 Gas          8.34        7.38     7.26
@@ -63,3 +60,7 @@ Equations
 cost .. y =e= sum((e,i,j), tc(j,i)*x(e,i,j)) ;
 supply(e,i) .. sum(j, x(e,i,j)) =l= cap(e,i) ;
 demand(e,j) .. sum(i, x(e,i,j)) =g= dem(e,j) ;
+
+Model FuelsModel /all/ ;
+Solve FuelsModel using lp minimizing y ;
+Display x.l, x.m, demand.m
