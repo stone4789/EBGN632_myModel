@@ -7,36 +7,8 @@ Sets
     ;
 
 Parameters                                         
-    sc(i) "solar capacity of plant i in cases"
-        /   denver 8.3
-            pueblo 120
-            weld   16 /
-    wc(i) "wind capacity of plant i in cases"
-        /   denver 8.3
-            pueblo 120
-            weld   16 /
-    gc(i) "gas capacity of plant i in cases"
-        /   denver 8.3
-            pueblo 120
-            weld   16 /        
-    s(j) "solar demand of market j in cases"
-        /   Denver 180
-            Golden 290
-            Boulder 111 /
-    g(j) "gas demand of market j in cases"
-        /   Denver 169
-            Golden 121
-            Boulder 230 /
-    w(j) "wind demand of market j in cases"
-        /   Denver 297
-            Golden 181
-            Boulder 218 /
-            
-    c(e,i) "cost of energy for each market"
     
-    c("Solar",i) = c_s(i)
-    c("Gas",i) = c_g(i)
-    c("Wind",i) = c_w(i) 
+
 ;
 
  Table c(e,i)  cost of energy type e at plant i:
@@ -56,6 +28,18 @@ Wind         0.035607    0.046585  0.043582 ;
 Golden       36.8        128     65.6
 Boulder      39.9        147     55
 Denver        0          119     51.2 ;
+
+ Table cap(e,i)  capacity of energy type e at plant i:
+             Denver    Pueblo  Weld
+Gas          8.3       120     16
+Solar        8.3       120     16
+Wind         8.3       120     16 ;
+
+ Table dem(e,j)  demand of energy type e at market j:
+             Denver    Golden  Boulder
+Gas          169       290     111
+Solar        180       121     218
+Wind         297       181     230 ;
 
 Scalar f transmission cost in cents /0.06/;
 
