@@ -28,9 +28,9 @@ Denver        0          119     51.2 ;
 
  Table cap(e,i)  capacity of energy type e at plant i:
              Denver    Pueblo  Weld
-Gas          8.3       120     16
-Solar        8.3       120     16
-Wind         8.3       120     16 ;
+Gas          178       300     126
+Solar        197       237     284
+Wind         339       266     299 ;
 
  Table dem(e,j)  demand of energy type e at market j:
              Denver    Golden  Boulder
