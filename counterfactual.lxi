@@ -1,0 +1,19 @@
+B 3 C o m p i l a t i o n
+B 76 Equation Listing    SOLVE counterfactual Using LP From line 65
+D 79 cost
+D 90 supply
+D 101 demand
+B 113 Column Listing      SOLVE counterfactual Using LP From line 65
+E 116 x
+E 137 y
+B 145 Model Statistics    SOLVE counterfactual Using LP From line 65
+B 161 Solution Report     SOLVE counterfactual Using LP From line 65
+F 190 cost
+F 192 supply
+F 206 demand
+G 220 x
+G 254 y
+B 264 E x e c u t i o n
+I 264 x
+I 280 x
+I 295 demand

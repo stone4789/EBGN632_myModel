@@ -1,0 +1,317 @@
+GAMS 28.2.0  r750fa45 Released Aug 19, 2019 DEX-DEG x86 64bit/Mac OS X - 11/04/19 08:33:15 Page 1
+Colorado Model
+C o m p i l a t i o n
+
+
+   2   
+   3  Sets
+   4      i   plants  / Denver, Pueblo, Weld /
+   5      j markets   / Denver, Golden, Boulder /
+   6      e energy    / Solar, Gas, Wind /
+   7      ;
+   8   
+   9  Parameters
+  10   
+  11   Table c(e,i)  cost of energy type e at plant i:
+  12               Denver    Pueblo    Weld
+  13  Gas          7.92        7.01     6.89
+  14  Solar        0.05       0.049     0.047
+  15  Wind         0.03237    0.04235   0.03962 ;
+  16   
+  17   Table p(e,i)  price of energy type e at plant i:
+  18               Denver    Pueblo    Weld
+  19  Gas          9.18        8.12     7.98
+  20  Solar        0.0695      0.065    0.062
+  21  Wind         0.035607    0.046585  0.043582 ;
+  22   
+  23   Table d(j,i)  distance in miles:
+  24               Denver    Pueblo    Weld
+  25  Golden       36.8        128     65.6
+  26  Boulder      39.9        147     55
+  27  Denver        0          119     51.2 ;
+  28   
+  29   Table cap(e,i)  capacity of energy type e at plant i:
+  30               Denver    Pueblo  Weld
+  31  Gas          178       300     126
+  32  Solar        197       237     284
+  33  Wind         339       266     299 ;
+  34   
+  35   Table dem(e,j)  demand of energy type e at market j:
+  36               Denver    Golden  Boulder
+  37  Gas          169       290     111
+  38  Solar        180       121     218
+  39  Wind         297       181     230 ;
+  40   
+  41  Scalar f transmission cost in cents /0.06/ ;
+  42   
+  43  Parameter tc(j,i) transmission cost;
+  44      tc(j,i) = f *d(j,i) ;
+  45   
+  46  Positive Variable x
+  47   
+  48  Variables
+  49      x(e,i,j) type of energy and quantity of power transmitted in MWh
+  50      y      total transmission cost
+  51      z      objective function value
+  52  ;
+  53   
+  54   
+  55  Equations
+  56      cost
+  57      supply(e,i) limit of energy e at plant i
+  58      demand(e,j) demand of energy e at market j ;
+  59   
+  60  cost .. y =e= sum((e,i,j), tc(j,i)*x(e,i,j)) ;
+  61  supply(e,i) .. sum(j, x(e,i,j)) =l= cap(e,i) ;
+  62  demand(e,j) .. sum(i, x(e,i,j)) =g= dem(e,j) ;
+  63   
+  64  Model counterfactual /all/ ;
+  65  Solve counterfactual using lp minimizing y ;
+  66  Display x.l, x.m, demand.m
+
+
+COMPILATION TIME     =        0.001 SECONDS      3 MB  28.2.0 r750fa45 DEX-DEG
+GAMS 28.2.0  r750fa45 Released Aug 19, 2019 DEX-DEG x86 64bit/Mac OS X - 11/04/19 08:33:15 Page 2
+Colorado Model
+Equation Listing    SOLVE counterfactual Using LP From line 65
+
+
+---- cost  =E=  
+
+cost..  - 2.208*x(Solar,Denver,Golden) - 2.394*x(Solar,Denver,Boulder) - 7.14*x(Solar,Pueblo,Denver) - 7.68*x(Solar,Pueblo,Golden) - 8.82*x(Solar,Pueblo,Boulder) - 3.072*x(Solar,Weld,Denver) - 3.936*x(Solar,Weld,Golden) - 3.3*x(Solar,Weld,Boulder)
+     
+      - 2.208*x(Gas,Denver,Golden) - 2.394*x(Gas,Denver,Boulder) - 7.14*x(Gas,Pueblo,Denver) - 7.68*x(Gas,Pueblo,Golden) - 8.82*x(Gas,Pueblo,Boulder) - 3.072*x(Gas,Weld,Denver) - 3.936*x(Gas,Weld,Golden) - 3.3*x(Gas,Weld,Boulder)
+     
+      - 2.208*x(Wind,Denver,Golden) - 2.394*x(Wind,Denver,Boulder) - 7.14*x(Wind,Pueblo,Denver) - 7.68*x(Wind,Pueblo,Golden) - 8.82*x(Wind,Pueblo,Boulder) - 3.072*x(Wind,Weld,Denver) - 3.936*x(Wind,Weld,Golden) - 3.3*x(Wind,Weld,Boulder) + y =E= 0 ;
+     
+      (LHS = 0)
+     
+
+---- supply  =L=  limit of energy e at plant i
+
+supply(Solar,Denver)..  x(Solar,Denver,Denver) + x(Solar,Denver,Golden) + x(Solar,Denver,Boulder) =L= 197 ; (LHS = 0)
+     
+supply(Solar,Pueblo)..  x(Solar,Pueblo,Denver) + x(Solar,Pueblo,Golden) + x(Solar,Pueblo,Boulder) =L= 237 ; (LHS = 0)
+     
+supply(Solar,Weld)..  x(Solar,Weld,Denver) + x(Solar,Weld,Golden) + x(Solar,Weld,Boulder) =L= 284 ; (LHS = 0)
+     
+REMAINING 6 ENTRIES SKIPPED
+
+
+---- demand  =G=  demand of energy e at market j
+
+demand(Solar,Denver)..  x(Solar,Denver,Denver) + x(Solar,Pueblo,Denver) + x(Solar,Weld,Denver) =G= 180 ; (LHS = 0, INFES = 180 ****)
+     
+demand(Solar,Golden)..  x(Solar,Denver,Golden) + x(Solar,Pueblo,Golden) + x(Solar,Weld,Golden) =G= 121 ; (LHS = 0, INFES = 121 ****)
+     
+demand(Solar,Boulder)..  x(Solar,Denver,Boulder) + x(Solar,Pueblo,Boulder) + x(Solar,Weld,Boulder) =G= 218 ; (LHS = 0, INFES = 218 ****)
+     
+REMAINING 6 ENTRIES SKIPPED
+
+GAMS 28.2.0  r750fa45 Released Aug 19, 2019 DEX-DEG x86 64bit/Mac OS X - 11/04/19 08:33:15 Page 3
+Colorado Model
+Column Listing      SOLVE counterfactual Using LP From line 65
+
+
+---- x  type of energy and quantity of power transmitted in MWh
+
+x(Solar,Denver,Denver)
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+        1       supply(Solar,Denver)
+        1       demand(Solar,Denver)
+
+x(Solar,Denver,Golden)
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+       -2.208   cost
+        1       supply(Solar,Denver)
+        1       demand(Solar,Golden)
+
+x(Solar,Denver,Boulder)
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+       -2.394   cost
+        1       supply(Solar,Denver)
+        1       demand(Solar,Boulder)
+
+REMAINING 24 ENTRIES SKIPPED
+
+---- y  total transmission cost
+
+y
+                (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
+        1       cost
+
+GAMS 28.2.0  r750fa45 Released Aug 19, 2019 DEX-DEG x86 64bit/Mac OS X - 11/04/19 08:33:15 Page 4
+Colorado Model
+Model Statistics    SOLVE counterfactual Using LP From line 65
+
+
+MODEL STATISTICS
+
+BLOCKS OF EQUATIONS           3     SINGLE EQUATIONS           19
+BLOCKS OF VARIABLES           2     SINGLE VARIABLES           28
+NON ZERO ELEMENTS            79
+
+
+GENERATION TIME      =        0.012 SECONDS      4 MB  28.2.0 r750fa45 DEX-DEG
+
+
+EXECUTION TIME       =        0.012 SECONDS      4 MB  28.2.0 r750fa45 DEX-DEG
+GAMS 28.2.0  r750fa45 Released Aug 19, 2019 DEX-DEG x86 64bit/Mac OS X - 11/04/19 08:33:15 Page 5
+Colorado Model
+Solution Report     SOLVE counterfactual Using LP From line 65
+
+
+               S O L V E      S U M M A R Y
+
+     MODEL   counterfactual      OBJECTIVE  y
+     TYPE    LP                  DIRECTION  MINIMIZE
+     SOLVER  CPLEX               FROM LINE  65
+
+**** SOLVER STATUS     1 Normal Completion         
+**** MODEL STATUS      1 Optimal                   
+**** OBJECTIVE VALUE             5457.5640
+
+ RESOURCE USAGE, LIMIT          0.008      1000.000
+ ITERATION COUNT, LIMIT        14    2000000000
+
+IBM ILOG CPLEX   28.2.0 r750fa45 Released Aug 19, 2019 DEG x86 64bit/Mac OS X 
+Cplex 12.9.0.0
+
+Space for names approximately 0.00 Mb
+Use option 'names no' to turn use of names off
+LP status(1): optimal
+Cplex Time: 0.00sec (det. 0.05 ticks)
+Optimal solution found.
+Objective :        5457.564000
+
+
+                           LOWER          LEVEL          UPPER         MARGINAL
+
+---- EQU cost                .              .              .             1.0000      
+
+---- EQU supply  limit of energy e at plant i
+
+                    LOWER          LEVEL          UPPER         MARGINAL
+
+Solar.Denver        -INF          197.0000       197.0000        -5.4720      
+Solar.Pueblo        -INF           38.0000       237.0000          .          
+Solar.Weld          -INF          284.0000       284.0000        -3.7440      
+Gas  .Denver        -INF          178.0000       178.0000        -5.4720      
+Gas  .Pueblo        -INF          266.0000       300.0000          .          
+Gas  .Weld          -INF          126.0000       126.0000        -3.7440      
+Wind .Denver        -INF          339.0000       339.0000        -5.4720      
+Wind .Pueblo        -INF           70.0000       266.0000          .          
+Wind .Weld          -INF          299.0000       299.0000        -3.7440      
+
+---- EQU demand  demand of energy e at market j
+
+                     LOWER          LEVEL          UPPER         MARGINAL
+
+Solar.Denver        180.0000       180.0000        +INF            5.4720      
+Solar.Golden        121.0000       121.0000        +INF            7.6800      
+Solar.Boulder       218.0000       218.0000        +INF            7.0440      
+Gas  .Denver        169.0000       169.0000        +INF            5.4720      
+Gas  .Golden        290.0000       290.0000        +INF            7.6800      
+Gas  .Boulder       111.0000       111.0000        +INF            7.0440      
+Wind .Denver        297.0000       297.0000        +INF            5.4720      
+Wind .Golden        181.0000       181.0000        +INF            7.6800      
+Wind .Boulder       230.0000       230.0000        +INF            7.0440      
+
+---- VAR x  type of energy and quantity of power transmitted in MWh
+
+                            LOWER          LEVEL          UPPER         MARGINAL
+
+Solar.Denver.Denver           .           180.0000        +INF             .          
+Solar.Denver.Golden           .            17.0000        +INF             .          
+Solar.Denver.Boulder          .              .            +INF            0.8220      
+Solar.Pueblo.Denver           .              .            +INF            1.6680      
+Solar.Pueblo.Golden           .            38.0000        +INF             .          
+Solar.Pueblo.Boulder          .              .            +INF            1.7760      
+Solar.Weld  .Denver           .              .            +INF            1.3440      
+Solar.Weld  .Golden           .            66.0000        +INF             .          
+Solar.Weld  .Boulder          .           218.0000        +INF             .          
+Gas  .Denver.Denver           .           169.0000        +INF             .          
+Gas  .Denver.Golden           .             9.0000        +INF             .          
+Gas  .Denver.Boulder          .              .            +INF            0.8220      
+Gas  .Pueblo.Denver           .              .            +INF            1.6680      
+Gas  .Pueblo.Golden           .           266.0000        +INF             .          
+Gas  .Pueblo.Boulder          .              .            +INF            1.7760      
+Gas  .Weld  .Denver           .              .            +INF            1.3440      
+Gas  .Weld  .Golden           .            15.0000        +INF             .          
+Gas  .Weld  .Boulder          .           111.0000        +INF             .          
+Wind .Denver.Denver           .           297.0000        +INF             .          
+Wind .Denver.Golden           .            42.0000        +INF             .          
+Wind .Denver.Boulder          .              .            +INF            0.8220      
+Wind .Pueblo.Denver           .              .            +INF            1.6680      
+Wind .Pueblo.Golden           .            70.0000        +INF             .          
+Wind .Pueblo.Boulder          .              .            +INF            1.7760      
+Wind .Weld  .Denver           .              .            +INF            1.3440      
+Wind .Weld  .Golden           .            69.0000        +INF             .          
+Wind .Weld  .Boulder          .           230.0000        +INF             .          
+
+                           LOWER          LEVEL          UPPER         MARGINAL
+
+---- VAR y                 -INF         5457.5640        +INF             .          
+
+  y  total transmission cost
+
+
+**** REPORT SUMMARY :        0     NONOPT
+                             0 INFEASIBLE
+                             0  UNBOUNDED
+GAMS 28.2.0  r750fa45 Released Aug 19, 2019 DEX-DEG x86 64bit/Mac OS X - 11/04/19 08:33:15 Page 6
+Colorado Model
+E x e c u t i o n
+
+
+----     66 VARIABLE x.L  type of energy and quantity of power transmitted in MWh
+
+                  Denver      Golden     Boulder
+
+Solar.Denver     180.000      17.000
+Solar.Pueblo                  38.000
+Solar.Weld                    66.000     218.000
+Gas  .Denver     169.000       9.000
+Gas  .Pueblo                 266.000
+Gas  .Weld                    15.000     111.000
+Wind .Denver     297.000      42.000
+Wind .Pueblo                  70.000
+Wind .Weld                    69.000     230.000
+
+
+----     66 VARIABLE x.M  type of energy and quantity of power transmitted in MWh
+
+                  Denver     Boulder
+
+Solar.Denver                   0.822
+Solar.Pueblo       1.668       1.776
+Solar.Weld         1.344
+Gas  .Denver                   0.822
+Gas  .Pueblo       1.668       1.776
+Gas  .Weld         1.344
+Wind .Denver                   0.822
+Wind .Pueblo       1.668       1.776
+Wind .Weld         1.344
+
+
+----     66 EQUATION demand.M  demand of energy e at market j
+
+           Denver      Golden     Boulder
+
+Solar       5.472       7.680       7.044
+Gas         5.472       7.680       7.044
+Wind        5.472       7.680       7.044
+
+
+
+EXECUTION TIME       =        0.001 SECONDS      3 MB  28.2.0 r750fa45 DEX-DEG
+
+
+USER: GAMS Development Corporation, USA              G871201/0000CA-ANY
+      Free Demo, +1 202-342-0180, support@gams.com, www.gams.com DC0000
+
+
+**** FILE SUMMARY
+
+Input      /Users/stonecipherdr/Documents/GitHub/EBGN632_myModel/counterfactual.gms
+Output     /Users/stonecipherdr/Documents/GitHub/EBGN632_myModel/counterfactual.lst
