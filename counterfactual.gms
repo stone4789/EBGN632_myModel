@@ -10,13 +10,13 @@ Parameters
     
  Table c(e,i)  cost of energy type e at plant i:
              Denver    Pueblo    Weld
-Gas          7.92        7.01     6.89
+Gas          3.84        3.16     3.08
 Solar        0.05       0.049     0.047
 Wind         0.03237    0.04235   0.03962 ;
 
  Table p(e,i)  price of energy type e at plant i:
              Denver    Pueblo    Weld
-Gas          9.18        8.12     7.98
+Gas          6.42        5.68     5.58
 Solar        0.0695      0.065    0.062
 Wind         0.035607    0.046585  0.043582 ;
 
@@ -38,7 +38,7 @@ Gas          169       290     111
 Solar        180       121     218
 Wind         297       181     230 ;
 
-Scalar f transmission cost in cents /0.06/ ;
+Scalar f transmission cost in cents /0.04/ ;
 
 Parameter tc(j,i) transmission cost;
     tc(j,i) = f *d(j,i) ;

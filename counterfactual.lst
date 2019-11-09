@@ -1,4 +1,4 @@
-GAMS 28.2.0  r750fa45 Released Aug 19, 2019 DEX-DEG x86 64bit/Mac OS X - 11/04/19 08:33:15 Page 1
+GAMS 28.2.0  r750fa45 Released Aug 19, 2019 DEX-DEG x86 64bit/Mac OS X - 11/09/19 13:04:50 Page 1
 Colorado Model
 C o m p i l a t i o n
 
@@ -14,13 +14,13 @@ C o m p i l a t i o n
   10   
   11   Table c(e,i)  cost of energy type e at plant i:
   12               Denver    Pueblo    Weld
-  13  Gas          7.92        7.01     6.89
+  13  Gas          3.84        3.16     3.08
   14  Solar        0.05       0.049     0.047
   15  Wind         0.03237    0.04235   0.03962 ;
   16   
   17   Table p(e,i)  price of energy type e at plant i:
   18               Denver    Pueblo    Weld
-  19  Gas          9.18        8.12     7.98
+  19  Gas          6.42        5.68     5.58
   20  Solar        0.0695      0.065    0.062
   21  Wind         0.035607    0.046585  0.043582 ;
   22   
@@ -42,7 +42,7 @@ C o m p i l a t i o n
   38  Solar        180       121     218
   39  Wind         297       181     230 ;
   40   
-  41  Scalar f transmission cost in cents /0.06/ ;
+  41  Scalar f transmission cost in cents /0.04/ ;
   42   
   43  Parameter tc(j,i) transmission cost;
   44      tc(j,i) = f *d(j,i) ;
@@ -71,18 +71,18 @@ C o m p i l a t i o n
 
 
 COMPILATION TIME     =        0.001 SECONDS      3 MB  28.2.0 r750fa45 DEX-DEG
-GAMS 28.2.0  r750fa45 Released Aug 19, 2019 DEX-DEG x86 64bit/Mac OS X - 11/04/19 08:33:15 Page 2
+GAMS 28.2.0  r750fa45 Released Aug 19, 2019 DEX-DEG x86 64bit/Mac OS X - 11/09/19 13:04:50 Page 2
 Colorado Model
 Equation Listing    SOLVE counterfactual Using LP From line 65
 
 
 ---- cost  =E=  
 
-cost..  - 2.208*x(Solar,Denver,Golden) - 2.394*x(Solar,Denver,Boulder) - 7.14*x(Solar,Pueblo,Denver) - 7.68*x(Solar,Pueblo,Golden) - 8.82*x(Solar,Pueblo,Boulder) - 3.072*x(Solar,Weld,Denver) - 3.936*x(Solar,Weld,Golden) - 3.3*x(Solar,Weld,Boulder)
+cost..  - 1.472*x(Solar,Denver,Golden) - 1.596*x(Solar,Denver,Boulder) - 4.76*x(Solar,Pueblo,Denver) - 5.12*x(Solar,Pueblo,Golden) - 5.88*x(Solar,Pueblo,Boulder) - 2.048*x(Solar,Weld,Denver) - 2.624*x(Solar,Weld,Golden) - 2.2*x(Solar,Weld,Boulder)
      
-      - 2.208*x(Gas,Denver,Golden) - 2.394*x(Gas,Denver,Boulder) - 7.14*x(Gas,Pueblo,Denver) - 7.68*x(Gas,Pueblo,Golden) - 8.82*x(Gas,Pueblo,Boulder) - 3.072*x(Gas,Weld,Denver) - 3.936*x(Gas,Weld,Golden) - 3.3*x(Gas,Weld,Boulder)
+      - 1.472*x(Gas,Denver,Golden) - 1.596*x(Gas,Denver,Boulder) - 4.76*x(Gas,Pueblo,Denver) - 5.12*x(Gas,Pueblo,Golden) - 5.88*x(Gas,Pueblo,Boulder) - 2.048*x(Gas,Weld,Denver) - 2.624*x(Gas,Weld,Golden) - 2.2*x(Gas,Weld,Boulder)
      
-      - 2.208*x(Wind,Denver,Golden) - 2.394*x(Wind,Denver,Boulder) - 7.14*x(Wind,Pueblo,Denver) - 7.68*x(Wind,Pueblo,Golden) - 8.82*x(Wind,Pueblo,Boulder) - 3.072*x(Wind,Weld,Denver) - 3.936*x(Wind,Weld,Golden) - 3.3*x(Wind,Weld,Boulder) + y =E= 0 ;
+      - 1.472*x(Wind,Denver,Golden) - 1.596*x(Wind,Denver,Boulder) - 4.76*x(Wind,Pueblo,Denver) - 5.12*x(Wind,Pueblo,Golden) - 5.88*x(Wind,Pueblo,Boulder) - 2.048*x(Wind,Weld,Denver) - 2.624*x(Wind,Weld,Golden) - 2.2*x(Wind,Weld,Boulder) + y =E= 0 ;
      
       (LHS = 0)
      
@@ -108,7 +108,7 @@ demand(Solar,Boulder)..  x(Solar,Denver,Boulder) + x(Solar,Pueblo,Boulder) + x(S
      
 REMAINING 6 ENTRIES SKIPPED
 
-GAMS 28.2.0  r750fa45 Released Aug 19, 2019 DEX-DEG x86 64bit/Mac OS X - 11/04/19 08:33:15 Page 3
+GAMS 28.2.0  r750fa45 Released Aug 19, 2019 DEX-DEG x86 64bit/Mac OS X - 11/09/19 13:04:50 Page 3
 Colorado Model
 Column Listing      SOLVE counterfactual Using LP From line 65
 
@@ -122,13 +122,13 @@ x(Solar,Denver,Denver)
 
 x(Solar,Denver,Golden)
                 (.LO, .L, .UP, .M = 0, 0, +INF, 0)
-       -2.208   cost
+       -1.472   cost
         1       supply(Solar,Denver)
         1       demand(Solar,Golden)
 
 x(Solar,Denver,Boulder)
                 (.LO, .L, .UP, .M = 0, 0, +INF, 0)
-       -2.394   cost
+       -1.596   cost
         1       supply(Solar,Denver)
         1       demand(Solar,Boulder)
 
@@ -140,7 +140,7 @@ y
                 (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
         1       cost
 
-GAMS 28.2.0  r750fa45 Released Aug 19, 2019 DEX-DEG x86 64bit/Mac OS X - 11/04/19 08:33:15 Page 4
+GAMS 28.2.0  r750fa45 Released Aug 19, 2019 DEX-DEG x86 64bit/Mac OS X - 11/09/19 13:04:50 Page 4
 Colorado Model
 Model Statistics    SOLVE counterfactual Using LP From line 65
 
@@ -152,11 +152,11 @@ BLOCKS OF VARIABLES           2     SINGLE VARIABLES           28
 NON ZERO ELEMENTS            79
 
 
-GENERATION TIME      =        0.012 SECONDS      4 MB  28.2.0 r750fa45 DEX-DEG
+GENERATION TIME      =        0.008 SECONDS      4 MB  28.2.0 r750fa45 DEX-DEG
 
 
-EXECUTION TIME       =        0.012 SECONDS      4 MB  28.2.0 r750fa45 DEX-DEG
-GAMS 28.2.0  r750fa45 Released Aug 19, 2019 DEX-DEG x86 64bit/Mac OS X - 11/04/19 08:33:15 Page 5
+EXECUTION TIME       =        0.008 SECONDS      4 MB  28.2.0 r750fa45 DEX-DEG
+GAMS 28.2.0  r750fa45 Released Aug 19, 2019 DEX-DEG x86 64bit/Mac OS X - 11/09/19 13:04:50 Page 5
 Colorado Model
 Solution Report     SOLVE counterfactual Using LP From line 65
 
@@ -169,9 +169,9 @@ Solution Report     SOLVE counterfactual Using LP From line 65
 
 **** SOLVER STATUS     1 Normal Completion         
 **** MODEL STATUS      1 Optimal                   
-**** OBJECTIVE VALUE             5457.5640
+**** OBJECTIVE VALUE             3638.3760
 
- RESOURCE USAGE, LIMIT          0.008      1000.000
+ RESOURCE USAGE, LIMIT          0.012      1000.000
  ITERATION COUNT, LIMIT        14    2000000000
 
 IBM ILOG CPLEX   28.2.0 r750fa45 Released Aug 19, 2019 DEG x86 64bit/Mac OS X 
@@ -182,7 +182,7 @@ Use option 'names no' to turn use of names off
 LP status(1): optimal
 Cplex Time: 0.00sec (det. 0.05 ticks)
 Optimal solution found.
-Objective :        5457.564000
+Objective :        3638.376000
 
 
                            LOWER          LEVEL          UPPER         MARGINAL
@@ -193,29 +193,29 @@ Objective :        5457.564000
 
                     LOWER          LEVEL          UPPER         MARGINAL
 
-Solar.Denver        -INF          197.0000       197.0000        -5.4720      
+Solar.Denver        -INF          197.0000       197.0000        -3.6480      
 Solar.Pueblo        -INF           38.0000       237.0000          .          
-Solar.Weld          -INF          284.0000       284.0000        -3.7440      
-Gas  .Denver        -INF          178.0000       178.0000        -5.4720      
+Solar.Weld          -INF          284.0000       284.0000        -2.4960      
+Gas  .Denver        -INF          178.0000       178.0000        -3.6480      
 Gas  .Pueblo        -INF          266.0000       300.0000          .          
-Gas  .Weld          -INF          126.0000       126.0000        -3.7440      
-Wind .Denver        -INF          339.0000       339.0000        -5.4720      
+Gas  .Weld          -INF          126.0000       126.0000        -2.4960      
+Wind .Denver        -INF          339.0000       339.0000        -3.6480      
 Wind .Pueblo        -INF           70.0000       266.0000          .          
-Wind .Weld          -INF          299.0000       299.0000        -3.7440      
+Wind .Weld          -INF          299.0000       299.0000        -2.4960      
 
 ---- EQU demand  demand of energy e at market j
 
                      LOWER          LEVEL          UPPER         MARGINAL
 
-Solar.Denver        180.0000       180.0000        +INF            5.4720      
-Solar.Golden        121.0000       121.0000        +INF            7.6800      
-Solar.Boulder       218.0000       218.0000        +INF            7.0440      
-Gas  .Denver        169.0000       169.0000        +INF            5.4720      
-Gas  .Golden        290.0000       290.0000        +INF            7.6800      
-Gas  .Boulder       111.0000       111.0000        +INF            7.0440      
-Wind .Denver        297.0000       297.0000        +INF            5.4720      
-Wind .Golden        181.0000       181.0000        +INF            7.6800      
-Wind .Boulder       230.0000       230.0000        +INF            7.0440      
+Solar.Denver        180.0000       180.0000        +INF            3.6480      
+Solar.Golden        121.0000       121.0000        +INF            5.1200      
+Solar.Boulder       218.0000       218.0000        +INF            4.6960      
+Gas  .Denver        169.0000       169.0000        +INF            3.6480      
+Gas  .Golden        290.0000       290.0000        +INF            5.1200      
+Gas  .Boulder       111.0000       111.0000        +INF            4.6960      
+Wind .Denver        297.0000       297.0000        +INF            3.6480      
+Wind .Golden        181.0000       181.0000        +INF            5.1200      
+Wind .Boulder       230.0000       230.0000        +INF            4.6960      
 
 ---- VAR x  type of energy and quantity of power transmitted in MWh
 
@@ -223,35 +223,35 @@ Wind .Boulder       230.0000       230.0000        +INF            7.0440
 
 Solar.Denver.Denver           .           180.0000        +INF             .          
 Solar.Denver.Golden           .            17.0000        +INF             .          
-Solar.Denver.Boulder          .              .            +INF            0.8220      
-Solar.Pueblo.Denver           .              .            +INF            1.6680      
+Solar.Denver.Boulder          .              .            +INF            0.5480      
+Solar.Pueblo.Denver           .              .            +INF            1.1120      
 Solar.Pueblo.Golden           .            38.0000        +INF             .          
-Solar.Pueblo.Boulder          .              .            +INF            1.7760      
-Solar.Weld  .Denver           .              .            +INF            1.3440      
+Solar.Pueblo.Boulder          .              .            +INF            1.1840      
+Solar.Weld  .Denver           .              .            +INF            0.8960      
 Solar.Weld  .Golden           .            66.0000        +INF             .          
 Solar.Weld  .Boulder          .           218.0000        +INF             .          
 Gas  .Denver.Denver           .           169.0000        +INF             .          
 Gas  .Denver.Golden           .             9.0000        +INF             .          
-Gas  .Denver.Boulder          .              .            +INF            0.8220      
-Gas  .Pueblo.Denver           .              .            +INF            1.6680      
+Gas  .Denver.Boulder          .              .            +INF            0.5480      
+Gas  .Pueblo.Denver           .              .            +INF            1.1120      
 Gas  .Pueblo.Golden           .           266.0000        +INF             .          
-Gas  .Pueblo.Boulder          .              .            +INF            1.7760      
-Gas  .Weld  .Denver           .              .            +INF            1.3440      
+Gas  .Pueblo.Boulder          .              .            +INF            1.1840      
+Gas  .Weld  .Denver           .              .            +INF            0.8960      
 Gas  .Weld  .Golden           .            15.0000        +INF             .          
 Gas  .Weld  .Boulder          .           111.0000        +INF             .          
 Wind .Denver.Denver           .           297.0000        +INF             .          
 Wind .Denver.Golden           .            42.0000        +INF             .          
-Wind .Denver.Boulder          .              .            +INF            0.8220      
-Wind .Pueblo.Denver           .              .            +INF            1.6680      
+Wind .Denver.Boulder          .              .            +INF            0.5480      
+Wind .Pueblo.Denver           .              .            +INF            1.1120      
 Wind .Pueblo.Golden           .            70.0000        +INF             .          
-Wind .Pueblo.Boulder          .              .            +INF            1.7760      
-Wind .Weld  .Denver           .              .            +INF            1.3440      
+Wind .Pueblo.Boulder          .              .            +INF            1.1840      
+Wind .Weld  .Denver           .              .            +INF            0.8960      
 Wind .Weld  .Golden           .            69.0000        +INF             .          
 Wind .Weld  .Boulder          .           230.0000        +INF             .          
 
                            LOWER          LEVEL          UPPER         MARGINAL
 
----- VAR y                 -INF         5457.5640        +INF             .          
+---- VAR y                 -INF         3638.3760        +INF             .          
 
   y  total transmission cost
 
@@ -259,7 +259,7 @@ Wind .Weld  .Boulder          .           230.0000        +INF             .
 **** REPORT SUMMARY :        0     NONOPT
                              0 INFEASIBLE
                              0  UNBOUNDED
-GAMS 28.2.0  r750fa45 Released Aug 19, 2019 DEX-DEG x86 64bit/Mac OS X - 11/04/19 08:33:15 Page 6
+GAMS 28.2.0  r750fa45 Released Aug 19, 2019 DEX-DEG x86 64bit/Mac OS X - 11/09/19 13:04:50 Page 6
 Colorado Model
 E x e c u t i o n
 
@@ -283,28 +283,28 @@ Wind .Weld                    69.000     230.000
 
                   Denver     Boulder
 
-Solar.Denver                   0.822
-Solar.Pueblo       1.668       1.776
-Solar.Weld         1.344
-Gas  .Denver                   0.822
-Gas  .Pueblo       1.668       1.776
-Gas  .Weld         1.344
-Wind .Denver                   0.822
-Wind .Pueblo       1.668       1.776
-Wind .Weld         1.344
+Solar.Denver                   0.548
+Solar.Pueblo       1.112       1.184
+Solar.Weld         0.896
+Gas  .Denver                   0.548
+Gas  .Pueblo       1.112       1.184
+Gas  .Weld         0.896
+Wind .Denver                   0.548
+Wind .Pueblo       1.112       1.184
+Wind .Weld         0.896
 
 
 ----     66 EQUATION demand.M  demand of energy e at market j
 
            Denver      Golden     Boulder
 
-Solar       5.472       7.680       7.044
-Gas         5.472       7.680       7.044
-Wind        5.472       7.680       7.044
+Solar       3.648       5.120       4.696
+Gas         3.648       5.120       4.696
+Wind        3.648       5.120       4.696
 
 
 
-EXECUTION TIME       =        0.001 SECONDS      3 MB  28.2.0 r750fa45 DEX-DEG
+EXECUTION TIME       =        0.002 SECONDS      3 MB  28.2.0 r750fa45 DEX-DEG
 
 
 USER: GAMS Development Corporation, USA              G871201/0000CA-ANY

@@ -1,4 +1,4 @@
-GAMS 28.2.0  r750fa45 Released Aug 19, 2019 DEX-DEG x86 64bit/Mac OS X - 11/04/19 08:23:16 Page 1
+GAMS 28.2.0  r750fa45 Released Aug 19, 2019 DEX-DEG x86 64bit/Mac OS X - 11/09/19 13:04:48 Page 1
 Colorado Model
 C o m p i l a t i o n
 
@@ -70,8 +70,8 @@ C o m p i l a t i o n
   66  Display x.l, x.m, demand.m
 
 
-COMPILATION TIME     =        0.001 SECONDS      3 MB  28.2.0 r750fa45 DEX-DEG
-GAMS 28.2.0  r750fa45 Released Aug 19, 2019 DEX-DEG x86 64bit/Mac OS X - 11/04/19 08:23:16 Page 2
+COMPILATION TIME     =        0.000 SECONDS      3 MB  28.2.0 r750fa45 DEX-DEG
+GAMS 28.2.0  r750fa45 Released Aug 19, 2019 DEX-DEG x86 64bit/Mac OS X - 11/09/19 13:04:48 Page 2
 Colorado Model
 Equation Listing    SOLVE FuelsModel Using LP From line 65
 
@@ -108,7 +108,7 @@ demand(Solar,Boulder)..  x(Solar,Denver,Boulder) + x(Solar,Pueblo,Boulder) + x(S
      
 REMAINING 6 ENTRIES SKIPPED
 
-GAMS 28.2.0  r750fa45 Released Aug 19, 2019 DEX-DEG x86 64bit/Mac OS X - 11/04/19 08:23:16 Page 3
+GAMS 28.2.0  r750fa45 Released Aug 19, 2019 DEX-DEG x86 64bit/Mac OS X - 11/09/19 13:04:48 Page 3
 Colorado Model
 Column Listing      SOLVE FuelsModel Using LP From line 65
 
@@ -140,7 +140,7 @@ y
                 (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
         1       cost
 
-GAMS 28.2.0  r750fa45 Released Aug 19, 2019 DEX-DEG x86 64bit/Mac OS X - 11/04/19 08:23:16 Page 4
+GAMS 28.2.0  r750fa45 Released Aug 19, 2019 DEX-DEG x86 64bit/Mac OS X - 11/09/19 13:04:48 Page 4
 Colorado Model
 Model Statistics    SOLVE FuelsModel Using LP From line 65
 
@@ -152,11 +152,11 @@ BLOCKS OF VARIABLES           2     SINGLE VARIABLES           28
 NON ZERO ELEMENTS            79
 
 
-GENERATION TIME      =        0.013 SECONDS      4 MB  28.2.0 r750fa45 DEX-DEG
+GENERATION TIME      =        0.018 SECONDS      4 MB  28.2.0 r750fa45 DEX-DEG
 
 
-EXECUTION TIME       =        0.013 SECONDS      4 MB  28.2.0 r750fa45 DEX-DEG
-GAMS 28.2.0  r750fa45 Released Aug 19, 2019 DEX-DEG x86 64bit/Mac OS X - 11/04/19 08:23:16 Page 5
+EXECUTION TIME       =        0.018 SECONDS      4 MB  28.2.0 r750fa45 DEX-DEG
+GAMS 28.2.0  r750fa45 Released Aug 19, 2019 DEX-DEG x86 64bit/Mac OS X - 11/09/19 13:04:48 Page 5
 Colorado Model
 Solution Report     SOLVE FuelsModel Using LP From line 65
 
@@ -171,7 +171,7 @@ Solution Report     SOLVE FuelsModel Using LP From line 65
 **** MODEL STATUS      1 Optimal                   
 **** OBJECTIVE VALUE             5457.5640
 
- RESOURCE USAGE, LIMIT          0.008      1000.000
+ RESOURCE USAGE, LIMIT          0.011      1000.000
  ITERATION COUNT, LIMIT        14    2000000000
 
 IBM ILOG CPLEX   28.2.0 r750fa45 Released Aug 19, 2019 DEG x86 64bit/Mac OS X 
@@ -259,7 +259,7 @@ Wind .Weld  .Boulder          .           230.0000        +INF             .
 **** REPORT SUMMARY :        0     NONOPT
                              0 INFEASIBLE
                              0  UNBOUNDED
-GAMS 28.2.0  r750fa45 Released Aug 19, 2019 DEX-DEG x86 64bit/Mac OS X - 11/04/19 08:23:16 Page 6
+GAMS 28.2.0  r750fa45 Released Aug 19, 2019 DEX-DEG x86 64bit/Mac OS X - 11/09/19 13:04:48 Page 6
 Colorado Model
 E x e c u t i o n
 

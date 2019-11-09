@@ -1,4 +1,4 @@
---- Job FuelsModel.gms Start 11/04/19 08:23:16 28.2.0 r750fa45 DEX-DEG x86 64bit/Mac OS X
+--- Job FuelsModel.gms Start 11/09/19 13:04:48 28.2.0 r750fa45 DEX-DEG x86 64bit/Mac OS X
 --- GAMS Parameters defined
     Input /Users/stonecipherdr/Documents/GitHub/EBGN632_myModel/FuelsModel.gms
     PageSize 0
@@ -14,12 +14,12 @@ Licensee: GAMS Development Corporation, USA              G871201/0000CA-ANY
           Free Demo, +1 202-342-0180, support@gams.com, www.gams.com DC0000
 --- Starting compilation
 --- FuelsModel.gms(66) 3 Mb
---- Starting execution: elapsed 0:00:00.002
+--- Starting execution: elapsed 0:00:00.003
 --- FuelsModel.gms(44) 4 Mb
 --- Generating LP model FuelsModel
 --- FuelsModel.gms(65) 4 Mb
 ---   19 rows  28 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:00.015
+--- Executing CPLEX: elapsed 0:00:00.021
 
 IBM ILOG CPLEX   28.2.0 r750fa45 Released Aug 19, 2019 DEG x86 64bit/Mac OS X 
 Cplex 12.9.0.0
@@ -65,7 +65,7 @@ Objective :        5457.564000
 --- Restarting execution
 --- FuelsModel.gms(65) 2 Mb
 --- Reading solution for model FuelsModel
---- Executing after solve: elapsed 0:00:00.114
+--- Executing after solve: elapsed 0:00:00.096
 --- FuelsModel.gms(66) 3 Mb
 *** Status: Normal completion
---- Job FuelsModel.gms Stop 11/04/19 08:23:16 elapsed 0:00:00.115
+--- Job FuelsModel.gms Stop 11/09/19 13:04:48 elapsed 0:00:00.096
