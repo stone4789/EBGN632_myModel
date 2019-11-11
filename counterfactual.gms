@@ -10,15 +10,15 @@ Parameters
     
  Table c(e,i)  cost of energy type e at plant i:
              Denver    Pueblo    Weld
-Gas          3.84        3.16     3.08
-Solar        0.05       0.049     0.047
-Wind         0.03237    0.04235   0.03962 ;
+Gas          3.34      3.16     3.48
+Solar        5         4.9      4.7
+Wind         3.237    4.235    3.962 ;
 
  Table p(e,i)  price of energy type e at plant i:
              Denver    Pueblo    Weld
-Gas          6.42        5.68     5.58
-Solar        0.0695      0.065    0.062
-Wind         0.035607    0.046585  0.043582 ;
+Gas          13.4      13.3     13.1
+Solar        6.95      6.5       6.2
+Wind         3.5607    4.6585   4.3582 ;
 
  Table d(j,i)  distance in miles:
              Denver    Pueblo    Weld
