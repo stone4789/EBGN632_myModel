@@ -1,4 +1,4 @@
---- Job counterfactual.gms Start 11/11/19 08:43:11 28.2.0 r750fa45 DEX-DEG x86 64bit/Mac OS X
+--- Job counterfactual.gms Start 11/09/19 13:04:50 28.2.0 r750fa45 DEX-DEG x86 64bit/Mac OS X
 --- GAMS Parameters defined
     Input /Users/stonecipherdr/Documents/GitHub/EBGN632_myModel/counterfactual.gms
     PageSize 0
@@ -14,12 +14,12 @@ Licensee: GAMS Development Corporation, USA              G871201/0000CA-ANY
           Free Demo, +1 202-342-0180, support@gams.com, www.gams.com DC0000
 --- Starting compilation
 --- counterfactual.gms(66) 3 Mb
---- Starting execution: elapsed 0:00:00.045
+--- Starting execution: elapsed 0:00:00.005
 --- counterfactual.gms(44) 4 Mb
 --- Generating LP model counterfactual
 --- counterfactual.gms(65) 4 Mb
 ---   19 rows  28 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:00.097
+--- Executing CPLEX: elapsed 0:00:00.013
 
 IBM ILOG CPLEX   28.2.0 r750fa45 Released Aug 19, 2019 DEG x86 64bit/Mac OS X 
 Cplex 12.9.0.0
@@ -65,7 +65,7 @@ Objective :        3638.376000
 --- Restarting execution
 --- counterfactual.gms(65) 2 Mb
 --- Reading solution for model counterfactual
---- Executing after solve: elapsed 0:00:00.386
+--- Executing after solve: elapsed 0:00:00.078
 --- counterfactual.gms(66) 3 Mb
 *** Status: Normal completion
---- Job counterfactual.gms Stop 11/11/19 08:43:11 elapsed 0:00:00.386
+--- Job counterfactual.gms Stop 11/09/19 13:04:50 elapsed 0:00:00.079

@@ -1,4 +1,4 @@
---- Job FuelsModel.gms Start 11/11/19 08:43:17 28.2.0 r750fa45 DEX-DEG x86 64bit/Mac OS X
+--- Job FuelsModel.gms Start 11/09/19 13:04:48 28.2.0 r750fa45 DEX-DEG x86 64bit/Mac OS X
 --- GAMS Parameters defined
     Input /Users/stonecipherdr/Documents/GitHub/EBGN632_myModel/FuelsModel.gms
     PageSize 0
@@ -14,12 +14,12 @@ Licensee: GAMS Development Corporation, USA              G871201/0000CA-ANY
           Free Demo, +1 202-342-0180, support@gams.com, www.gams.com DC0000
 --- Starting compilation
 --- FuelsModel.gms(66) 3 Mb
---- Starting execution: elapsed 0:00:00.005
+--- Starting execution: elapsed 0:00:00.003
 --- FuelsModel.gms(44) 4 Mb
 --- Generating LP model FuelsModel
 --- FuelsModel.gms(65) 4 Mb
 ---   19 rows  28 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:00.014
+--- Executing CPLEX: elapsed 0:00:00.021
 
 IBM ILOG CPLEX   28.2.0 r750fa45 Released Aug 19, 2019 DEG x86 64bit/Mac OS X 
 Cplex 12.9.0.0
@@ -42,31 +42,30 @@ Presolve time = 0.00 sec. (0.02 ticks)
 Initializing dual steep norms . . .
 
 Iteration      Dual Objective            In Variable           Out Variable
-     1           55062.000000 x(Wind.Denver.Boulder)demand(Wind.Bould slack
-     2          107251.200000x(Solar.Denver.Boulder)demand(Solar.Boul slack
-     3          147216.000000  x(Wind.Denver.Golden)demand(Wind.Golde slack
-     4          180647.400000   x(Wind.Weld.Boulder)demand(Wind.Denve slack
-     5          213767.400000   x(Gas.Denver.Golden)demand(Gas.Golden slack
-     6          240484.200000 x(Solar.Denver.Golden)demand(Solar.Gold slack
-     7          269657.400000  x(Solar.Weld.Boulder)demand(Solar.Denv slack
-     8          296230.800000  x(Gas.Denver.Boulder)demand(Gas.Boulde slack
-     9          319062.000000    x(Gas.Weld.Boulder)demand(Gas.Denver slack
-    10          330652.200000     x(Gas.Weld.Golden)  x(Gas.Denver.Boulder)
-    11          342078.000000    x(Wind.Weld.Golden) x(Wind.Denver.Boulder)
-    12          350626.800000   x(Solar.Weld.Golden)x(Solar.Denver.Boulder)
-    13          397801.200000   x(Gas.Pueblo.Golden) supply(Gas.Weld) slack
-    14          424009.200000  x(Wind.Pueblo.Golden)supply(Wind.Weld) slack
-    15          438236.400000 x(Solar.Pueblo.Golden)supply(Solar.Weld slack
+     1             640.320000   x(Gas.Denver.Golden)demand(Gas.Golden slack
+     2            1190.940000 x(Wind.Denver.Boulder)demand(Wind.Bould slack
+     3            1712.832000x(Solar.Denver.Boulder)demand(Solar.Boul slack
+     4            2112.480000  x(Wind.Denver.Golden)demand(Wind.Golde slack
+     5            2446.794000   x(Wind.Weld.Boulder)demand(Wind.Denve slack
+     6            2932.362000     x(Gas.Weld.Golden)demand(Gas.Denver slack
+     7            3199.530000 x(Solar.Denver.Golden)demand(Solar.Gold slack
+     8            3491.262000  x(Solar.Weld.Boulder)demand(Solar.Denv slack
+     9            3857.562000    x(Gas.Weld.Boulder)demand(Gas.Boulde slack
+    10            4853.466000   x(Gas.Pueblo.Golden) supply(Gas.Weld) slack
+    11            4967.724000    x(Wind.Weld.Golden) x(Wind.Denver.Boulder)
+    12            5053.212000   x(Solar.Weld.Golden)x(Solar.Denver.Boulder)
+    13            5315.292000  x(Wind.Pueblo.Golden)supply(Wind.Weld) slack
+    14            5457.564000 x(Solar.Pueblo.Golden)supply(Solar.Weld slack
 LP status(1): optimal
 Cplex Time: 0.00sec (det. 0.05 ticks)
 
 Optimal solution found.
-Objective :      438236.400000
+Objective :        5457.564000
 
 --- Restarting execution
 --- FuelsModel.gms(65) 2 Mb
 --- Reading solution for model FuelsModel
---- Executing after solve: elapsed 0:00:00.077
+--- Executing after solve: elapsed 0:00:00.096
 --- FuelsModel.gms(66) 3 Mb
 *** Status: Normal completion
---- Job FuelsModel.gms Stop 11/11/19 08:43:17 elapsed 0:00:00.077
+--- Job FuelsModel.gms Stop 11/09/19 13:04:48 elapsed 0:00:00.096

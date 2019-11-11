@@ -1,4 +1,4 @@
-GAMS 28.2.0  r750fa45 Released Aug 19, 2019 DEX-DEG x86 64bit/Mac OS X - 11/09/19 13:04:50 Page 1
+GAMS 28.2.0  r750fa45 Released Aug 19, 2019 DEX-DEG x86 64bit/Mac OS X - 11/11/19 08:43:11 Page 1
 Colorado Model
 C o m p i l a t i o n
 
@@ -14,15 +14,15 @@ C o m p i l a t i o n
   10   
   11   Table c(e,i)  cost of energy type e at plant i:
   12               Denver    Pueblo    Weld
-  13  Gas          3.84        3.16     3.08
-  14  Solar        0.05       0.049     0.047
-  15  Wind         0.03237    0.04235   0.03962 ;
+  13  Gas          3.34      3.16     3.48
+  14  Solar        5         4.9      4.7
+  15  Wind         3.237    4.235    3.962 ;
   16   
   17   Table p(e,i)  price of energy type e at plant i:
   18               Denver    Pueblo    Weld
-  19  Gas          6.42        5.68     5.58
-  20  Solar        0.0695      0.065    0.062
-  21  Wind         0.035607    0.046585  0.043582 ;
+  19  Gas          13.4      13.3     13.1
+  20  Solar        6.95      6.5       6.2
+  21  Wind         3.5607    4.6585   4.3582 ;
   22   
   23   Table d(j,i)  distance in miles:
   24               Denver    Pueblo    Weld
@@ -71,7 +71,7 @@ C o m p i l a t i o n
 
 
 COMPILATION TIME     =        0.001 SECONDS      3 MB  28.2.0 r750fa45 DEX-DEG
-GAMS 28.2.0  r750fa45 Released Aug 19, 2019 DEX-DEG x86 64bit/Mac OS X - 11/09/19 13:04:50 Page 2
+GAMS 28.2.0  r750fa45 Released Aug 19, 2019 DEX-DEG x86 64bit/Mac OS X - 11/11/19 08:43:11 Page 2
 Colorado Model
 Equation Listing    SOLVE counterfactual Using LP From line 65
 
@@ -108,7 +108,7 @@ demand(Solar,Boulder)..  x(Solar,Denver,Boulder) + x(Solar,Pueblo,Boulder) + x(S
      
 REMAINING 6 ENTRIES SKIPPED
 
-GAMS 28.2.0  r750fa45 Released Aug 19, 2019 DEX-DEG x86 64bit/Mac OS X - 11/09/19 13:04:50 Page 3
+GAMS 28.2.0  r750fa45 Released Aug 19, 2019 DEX-DEG x86 64bit/Mac OS X - 11/11/19 08:43:11 Page 3
 Colorado Model
 Column Listing      SOLVE counterfactual Using LP From line 65
 
@@ -140,7 +140,7 @@ y
                 (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
         1       cost
 
-GAMS 28.2.0  r750fa45 Released Aug 19, 2019 DEX-DEG x86 64bit/Mac OS X - 11/09/19 13:04:50 Page 4
+GAMS 28.2.0  r750fa45 Released Aug 19, 2019 DEX-DEG x86 64bit/Mac OS X - 11/11/19 08:43:11 Page 4
 Colorado Model
 Model Statistics    SOLVE counterfactual Using LP From line 65
 
@@ -152,11 +152,11 @@ BLOCKS OF VARIABLES           2     SINGLE VARIABLES           28
 NON ZERO ELEMENTS            79
 
 
-GENERATION TIME      =        0.008 SECONDS      4 MB  28.2.0 r750fa45 DEX-DEG
+GENERATION TIME      =        0.052 SECONDS      4 MB  28.2.0 r750fa45 DEX-DEG
 
 
-EXECUTION TIME       =        0.008 SECONDS      4 MB  28.2.0 r750fa45 DEX-DEG
-GAMS 28.2.0  r750fa45 Released Aug 19, 2019 DEX-DEG x86 64bit/Mac OS X - 11/09/19 13:04:50 Page 5
+EXECUTION TIME       =        0.052 SECONDS      4 MB  28.2.0 r750fa45 DEX-DEG
+GAMS 28.2.0  r750fa45 Released Aug 19, 2019 DEX-DEG x86 64bit/Mac OS X - 11/11/19 08:43:11 Page 5
 Colorado Model
 Solution Report     SOLVE counterfactual Using LP From line 65
 
@@ -171,7 +171,7 @@ Solution Report     SOLVE counterfactual Using LP From line 65
 **** MODEL STATUS      1 Optimal                   
 **** OBJECTIVE VALUE             3638.3760
 
- RESOURCE USAGE, LIMIT          0.012      1000.000
+ RESOURCE USAGE, LIMIT          0.011      1000.000
  ITERATION COUNT, LIMIT        14    2000000000
 
 IBM ILOG CPLEX   28.2.0 r750fa45 Released Aug 19, 2019 DEG x86 64bit/Mac OS X 
@@ -259,7 +259,7 @@ Wind .Weld  .Boulder          .           230.0000        +INF             .
 **** REPORT SUMMARY :        0     NONOPT
                              0 INFEASIBLE
                              0  UNBOUNDED
-GAMS 28.2.0  r750fa45 Released Aug 19, 2019 DEX-DEG x86 64bit/Mac OS X - 11/09/19 13:04:50 Page 6
+GAMS 28.2.0  r750fa45 Released Aug 19, 2019 DEX-DEG x86 64bit/Mac OS X - 11/11/19 08:43:11 Page 6
 Colorado Model
 E x e c u t i o n
 
